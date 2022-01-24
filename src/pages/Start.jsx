@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 const Start = () => {
+    let navigate = useNavigate();
+
   return ( 
     <Fragment>   
         <Card.Title>
@@ -12,7 +15,8 @@ const Start = () => {
         <Card.Text>
             This Application creates timer's for speakers and then generates a complete timer's report. 
         </Card.Text>
-        <Button variant="primary">Start Session</Button>
+        
+        <Button variant="success" size='lg'  onClick={() => navigate("/sessioninformation")}>Enter Session Information</Button>
     </Fragment>
   )};
 

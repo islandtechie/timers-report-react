@@ -1,15 +1,13 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import React, { useState } from 'react';
+import { Outlet } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 
-
-import Start from './pages/Start';
 import logo from './assets/images/toastmasters-logo.jpg';
 
 
 const App = () => {
+  const [speakers, setSpeakers] = useState([{}]);
+  const [evaluators, setEvaluators] = useState([{}]);
   return (
     <Card style={{ textAlign: 'center', minHeight: 100 + 'vh'}}>
         <Card.Header style={{ backgroundColor: 'white'}}>
@@ -22,7 +20,7 @@ const App = () => {
             </div>
         </Card.Header>
         <Card.Body>
-            <Start />
+            <Outlet context={[speakers, setSpeakers], [evaluators, setEvaluators]} />
         </Card.Body>
     </Card>
   )
